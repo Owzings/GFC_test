@@ -8,7 +8,7 @@
     <form id="name_form" method="post" action="">
         {% csrf_token %}
         {{ form.as_p }} 
-        <input type="submit" name="submit" value="Ajouter">
+        <input onclick="window.location.href = '/liste';" type="submit" name="submit" value="Ajouter">
     </form>
 
 </br>

@@ -54,6 +54,10 @@ def list_view(request):
           
     return render(request, "liste.html", context) 
 
+def intro (request):
+    context = {}
+    
+    return render(request, "intro.html", context) 
 
 def articles(request): 
     context ={} 
