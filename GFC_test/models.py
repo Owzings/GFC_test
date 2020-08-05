@@ -7,3 +7,9 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.CharField(max_length=200)
     
+    
+class Author(models.Model) :
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    birth_date = models.DateTimeField('date de creation')
+    langage = models.CharField(max_length=200)
+    
