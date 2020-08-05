@@ -1,9 +1,26 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from GFC_test.models import Article
+from GFC_test.forms import ArticleForm
 
 
-def articles(request):
-    names_from_db = Article.objects.all()
-    context_dict = {'names_from_context': names_from_db}
-    return render(request, 'index.html', context_dict)
+def list_view(request): 
+    # dictionary for initial data with  
+    # field names as keys 
+    context ={} 
+  
+    # add the dictionary during initialization 
+    context["dataset"] = Article.objects.all() 
+          
+    return render(request, "liste.html", context) 
+
+
+def articles(request): 
+    context ={} 
+  
+    form = ArticleForm(request.POST or None) 
+    if form.is_valid(): 
+        form.save() 
+          
+    context['form']= form 
+    return render(request, "index.html", context) 
