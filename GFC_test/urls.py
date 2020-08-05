@@ -23,8 +23,8 @@ urlpatterns = [
     path('liste/', views.list_view, name='list_view'),
     path('liste/',include('django.contrib.auth.urls')),
     path('<id>/', views.detail_view), 
-    path('<id>/update/', views.update_view), 
-    path('<id>/delete/', views.delete_view), 
+    path('<id>/update/', views.update_view, name='edit_article'), 
+    path('<id>/delete/', views.delete_view, name='delete_article'), 
     
 ]
 

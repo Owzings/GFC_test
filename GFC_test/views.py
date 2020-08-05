@@ -34,7 +34,7 @@ def update_view(request, id):
   
     obj = get_object_or_404(Article, id = id) 
   
-    form = Article(request.POST or None, instance = obj) 
+    form = ArticleForm(request.POST or None, instance = obj) 
   
     if form.is_valid(): 
         form.save() 

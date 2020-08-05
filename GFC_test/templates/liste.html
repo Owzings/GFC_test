@@ -7,20 +7,27 @@
 
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-{% endif %}
-    <h3>Liste des articles</h3>
-    {% for data in dataset %}
-  
-    <li>{{ data.title }}</li>
-    <br>
-  
-    {% endfor %} 
+  <h3>Liste des articles</h3>
+  {% for data in dataset %}
+
+  <li>Titre : {{ data.title }}</li>
+  <li>Auteur : {{ data.author}}</li>
+  <li>Contenu : {{ data.content}}</li>
+
+  <a href={% url 'delete_article' id=data.id %}>Delete</a>
+  <a href={% url 'edit_article' id=data.id %}>Edit</a>
+  <br>
+
+  {% endfor %} 
 
 </br>
 <a href="/articles">Revenir à la page d'ajout d'article</a>
+
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <p><a href="{% url 'login' %}">login</a></p>
+{% endif %}
 
 </body>
 </html>
