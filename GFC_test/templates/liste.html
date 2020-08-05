@@ -4,6 +4,13 @@
     <title>GFC_test</title>
 </head>
 <body>
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+{% endif %}
     <h3>Liste des articles</h3>
     {% for data in dataset %}
   
@@ -11,6 +18,9 @@
     <br>
   
     {% endfor %} 
+
+</br>
+<a href="/articles">Revenir à la page d'ajout d'article</a>
 
 </body>
 </html>
