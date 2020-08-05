@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFC_test</title>
+</head>
+<body>
+    <p>Articles</p>
+    {% if names_from_context %}
+        <ul>
+            {% for name in names_from_context %}
+                <li>{{name}}  <button>Delete</button> <button>Update</button></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>Pas d'articles</h3>
+    {% endif %}
+    <h3>Ajouter un article</h3>
+    <button>Ajouter</button>
+</body>
+</html>

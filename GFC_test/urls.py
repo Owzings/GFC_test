@@ -19,8 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('articles/', views.articles, name='articles'),
 ]
 
-urlpatterns = [
-    path('editAreticle/', views.editArticle, name='editArticle'),
-]
